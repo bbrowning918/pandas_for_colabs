@@ -1,40 +1,44 @@
 import numpy as np
 
 from decorators import profile
-from utils import build_test_arr
+from utils import build_test_list
+
 
 @profile
-def loop_mean(arr):
+def loop_mean(list):
     total = 0
     count = 0
-    for entry in arr:
+    for entry in list:
         total += entry
         count += 1
 
     return total / count
 
+
 @profile
-def mean(arr):
-    return float(sum(arr)) / len(arr)
+def mean(list):
+    return float(sum(list)) / len(list)
+
 
 @profile
 def numpy_mean(np_arr):
     return np.mean(np_arr)
 
+
 def main():
-    for l in [10 ** x for x in range(4, 8)]:
-        arr = build_test_arr(l)
-        np_arr = np.array(arr)
+    for length in [10**x for x in range(4, 8)]:
+        list = build_test_list(length)
+        np_arr = np.array(list)
 
-        result = loop_mean(arr)
-        print(F"loop_mean@{l}: {result}")
+        result = loop_mean(list)
+        print(f"loop_mean@{length}: {result}")
 
-        result = mean(arr)
-        print(F"mean@{l}: {result}")
+        result = mean(list)
+        print(f"mean@{length}: {result}")
 
         result = numpy_mean(np_arr)
-        print(f"numpy_mean@{l}: {result}")
+        print(f"numpy_mean@{length}: {result}")
+
 
 if __name__ == "__main__":
     main()
-

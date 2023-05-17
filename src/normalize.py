@@ -1,29 +1,53 @@
+import math
 import numpy as np
 
 from decorators import profile
-from utils import build_test_arr
+from utils import build_test_list
+
 
 @profile
-def normalize(arr):
-    arr_max = max(arr)
-    arr_min = min(arr)
-    return [(i - arr_min) / (arr_max - arr_min) for i in arr] 
+def loop_norm(list):
+    list_max = -math.inf
+    list_min = math.inf
+    for entry in list:
+        if entry < list_min:
+            list_min = entry
+        if entry > list_max:
+            list_max = entry
+
+    result = []
+    for entry in list:
+        result.append((entry - list_min) / (list_max - list_min))
+
+    return result
+
 
 @profile
-def numpy_normalize(np_arr):
+def norm(list):
+    list_max = max(list)
+    list_min = min(list)
+    return [(entry - list_min) / (list_max - list_min) for entry in list]
+
+
+@profile
+def numpy_norm(np_arr):
     return (np_arr - np.min(np_arr)) / (np.max(np_arr) - np.min(np_arr))
 
+
 def main():
-    for l in [10 ** x for x in range(4, 8)]:
-        arr = build_test_arr(l)
-        np_arr = np.array(arr)
+    for length in [10**x for x in range(4, 8)]:
+        list = build_test_list(length)
+        np_arr = np.array(list)
 
-        result = normalize(arr)
-        print(F"normalize@{l} check: {result[:5]}")
+        result = loop_norm(list)
+        print(f"loop_norm@{length} check: {result[:5]}")
 
-        result = numpy_normalize(np_arr)
-        print(F"numpy_normalize@{l} check: {result[:5]}")
+        result = norm(list)
+        print(f"norm@{length} check: {result[:5]}")
+
+        result = numpy_norm(np_arr)
+        print(f"numpy_norm@{length} check: {result[:5]}")
+
 
 if __name__ == "__main__":
     main()
-
