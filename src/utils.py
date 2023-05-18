@@ -3,5 +3,5 @@ import random
 random.seed(123)
 
 
-def build_test_list(length):
+def generate_test_numbers(length):
     return [int(100 * random.random()) for _ in range(length)]

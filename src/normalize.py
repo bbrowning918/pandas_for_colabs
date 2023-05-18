@@ -2,50 +2,50 @@ import math
 import numpy as np
 
 from decorators import profile
-from utils import build_test_list
+from utils import generate_test_numbers
 
 
 @profile
-def loop_norm(list):
-    list_max = -math.inf
-    list_min = math.inf
-    for entry in list:
-        if entry < list_min:
-            list_min = entry
-        if entry > list_max:
-            list_max = entry
+def loop_norm(numbers):
+    max_number = -math.inf
+    min_number = math.inf
+    for number in numbers:
+        if number < min_number:
+            min_number = number
+        if number > max_number:
+            max_number = number
 
     result = []
-    for entry in list:
-        result.append((entry - list_min) / (list_max - list_min))
+    for number in numbers:
+        result.append((number - min_number) / (max_number - min_number))
 
     return result
 
 
 @profile
-def norm(list):
-    list_max = max(list)
-    list_min = min(list)
-    return [(entry - list_min) / (list_max - list_min) for entry in list]
+def norm(numbers):
+    max_number = max(numbers)
+    min_number = min(numbers)
+    return [(number - min_number) / (max_number - min_number) for number in numbers]
 
 
 @profile
-def numpy_norm(np_arr):
-    return (np_arr - np.min(np_arr)) / (np.max(np_arr) - np.min(np_arr))
+def numpy_norm(np_array):
+    return (np_array - np.min(np_array)) / (np.max(np_array) - np.min(np_array))
 
 
 def main():
     for length in [10**x for x in range(4, 8)]:
-        list = build_test_list(length)
-        np_arr = np.array(list)
+        numbers = generate_test_numbers(length)
+        np_array = np.array(numbers)
 
-        result = loop_norm(list)
+        result = loop_norm(numbers)
         print(f"loop_norm@{length} check: {result[:5]}")
 
-        result = norm(list)
+        result = norm(numbers)
         print(f"norm@{length} check: {result[:5]}")
 
-        result = numpy_norm(np_arr)
+        result = numpy_norm(np_array)
         print(f"numpy_norm@{length} check: {result[:5]}")
 
 
