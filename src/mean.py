@@ -17,7 +17,7 @@ def loop_mean(list):
 
 @profile
 def mean(list):
-    return float(sum(list)) / len(list)
+    return sum(list) / len(list)
 
 
 @profile
