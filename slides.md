@@ -140,10 +140,10 @@ Using a `numpy.array` with `numpy.mean`
 
 | length | loop_mean | mean | numpy_mean |
 | ------ | ----- | ----- | ----- |
-| 10 000 | 0s | 0s | 0s |
-| 100 000 | 0s | 0s | 0s|
-| 1 000 000 | 0s | 0s | 0s |
-| 10 000 000 | 0s | 0s | 0s |
+| 10 000 | 2 ms | 1 ms | 1 ms |
+| 100 000 | 26 ms | 1 ms | 1 ms|
+| 1 000 000 | 249 ms | 13 ms | 4 ms |
+| 10 000 000 | 2482 ms | 130 ms | 33 ms |
 
 [comment]: # (!!!)
 
@@ -205,10 +205,10 @@ Using a `numpy.array` with `numpy.min` & `numpy.max`
 
 | length | loop_norm | norm | numpy_norm |
 | ------ | ----- | ----- | ----- |
-| 10 000 | 0s | 0s | 0s |
-| 100 000 | 0s | 0s | 0s|
-| 1 000 000 | 0s | 0s | 0s |
-| 10 000 000 | 0s | 0s | 0s |
+| 10 000 | 49 ms | 3 ms |  5 ms |
+| 100 000 |  493 ms | 33 ms | 5 ms|
+| 1 000 000 | 4949 ms | 321 ms | 37 ms |
+| 10 000 000 | 49649 ms | 3201 ms | 357 ms |
 
 [comment]: # (!!!)
 
