@@ -83,9 +83,7 @@ Series are the secret sauce allowing a whole ton of fast, effective manipulation
 
 [comment]: # (!!!)
 
-###### The words "fast" and "Python" together
-
-You are missing a "not" aren't you
+###### How can "fast" and "Python" be in the same sentence?
 
 [comment]: # (!!!)
 
@@ -143,7 +141,7 @@ Using a `numpy.array` with `numpy.mean`
 | ------ | ----- | ----- | ----- |
 | 10 000 | 2 ms | 1 ms | 1 ms |
 | 100 000 | 26 ms | 1 ms | 1 ms|
-| 1 000 000 | 249 ms | 13 ms | 4 ms |
+| 1 000 000 | 249 ms | 13 ms | 3 ms |
 | 10 000 000 | 2482 ms | 130 ms | 33 ms |
 
 [comment]: # (!!!)
@@ -206,9 +204,9 @@ Using a `numpy.array` with `numpy.min` & `numpy.max`
 | length | loop_norm | norm | numpy_norm |
 | ------ | ----- | ----- | ----- |
 | 10 000 | 49 ms | 3 ms | 1 ms |
-| 100 000 |  493 ms | 33 ms | 5 ms|
-| 1 000 000 | 4949 ms | 321 ms | 37 ms |
-| 10 000 000 | 49649 ms | 3201 ms | 357 ms |
+| 100 000 |  493 ms | 33 ms | 3 ms|
+| 1 000 000 | 4949 ms | 321 ms | 34 ms |
+| 10 000 000 | 49649 ms | 3201 ms | 341 ms |
 
 [comment]: # (!!!)
 
@@ -220,7 +218,7 @@ Using a `numpy.array` with `numpy.min` & `numpy.max`
 - Highly optimized, precompiled, vectorized C operations
     - Runs simultaneously over many values instead of just one at a time
 - Less overhead than writing your own C, C++, Rust extensions
-- It can cheat at times on multipe cores/threads (ex: [BLAS](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms))
+- It cheats when it can with multipe cores/threads and even [BLAS](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms)
 
 [comment]: # (!!!)
 
