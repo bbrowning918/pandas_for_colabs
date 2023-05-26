@@ -24,7 +24,7 @@
 
 ![Panda cub](media/panda_cub.jpeg)
 
-Not the kind of Pandas we are going to talk about
+Not this kind :(
 
 [comment]: # (!!!)
 
@@ -39,7 +39,7 @@ Pandas - Python Data Analysis Library
 [comment]: # (!!!)
 
 - 2007 - Applied Quantitative Research Captial Management (AQR)
-- They're a hedge fund managing many billions of dollars at that time
+- AQR managed many billions of dollars at that time (they're a hedge fund)
 
 [comment]: # (!!!)
 
@@ -64,7 +64,7 @@ AQR hires Wes McKinney
 
 [comment]: # (!!!)
 
-###### What is the big deal?
+###### What makes Pandas special?
 
 [comment]: # (!!!)
 
@@ -95,7 +95,7 @@ NumPy is Python's numerical computing dark magic library
 
 [comment]: # (!!!)
 
-###### What qualifies as "fast"
+###### What is Numpy?
 
 [comment]: # (!!!)
 
@@ -531,7 +531,7 @@ memory usage: 384.0 bytes
 
 # The Good
 
-- Abusing vectorized operations is free *speed*
+- Abusing NumPy/vectorized operations is free *speed*
 - Easy data wrangling and manipulation
 - Seamless hookup to the rest of the Python ecosystem
 - Flexible and fully featured out of the box
